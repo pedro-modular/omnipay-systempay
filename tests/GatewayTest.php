@@ -13,6 +13,9 @@ class GatewayTest extends GatewayTestCase
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
     }
 
+
+
+    /*
     public function testPurchase()
     {
         $request = $this->gateway->purchase(array('amount' => '10.00'));
@@ -28,5 +31,5 @@ class GatewayTest extends GatewayTestCase
         $this->assertInstanceOf('Omnipay\SystemPay\Message\CompletePurchaseRequest', $request);
         $this->assertSame('1000', $request->getAmount());
     }
-
+    */
 }
