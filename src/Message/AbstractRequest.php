@@ -231,8 +231,9 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
         $data = array_intersect_key($data, array_flip($matchedKeys));
 
         // Add the certificate
-        $data[] = $this->getCertificate();
+        $key = $this->getCertificate();
+        $data[] = $key;
 
-        return sha1(implode('+', $data));
+        return base64_encode(hash_hmac('sha256',$data, $key, true));;
     }
 }
