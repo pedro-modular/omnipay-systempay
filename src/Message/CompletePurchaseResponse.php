@@ -9,6 +9,9 @@ use Omnipay\Common\Message\AbstractResponse;
  */
 class CompletePurchaseResponse extends AbstractResponse
 {
+
+    use GetMetadataTrait;
+    
     public function isSuccessful()
     {
         return $this->getTransactionStatus() == 'AUTHORISED';
