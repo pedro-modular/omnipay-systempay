@@ -27,16 +27,6 @@ class Gateway extends AbstractGateway
         );
     }
 
-    public function getMerchantId()
-    {
-        return $this->getParameter('merchantId');
-    }
-
-    public function setMerchantId($value)
-    {
-        return $this->setParameter('merchantId', $value);
-    }
-
     public function getCertificate()
     {
         return $this->getParameter('certificate');
@@ -45,11 +35,6 @@ class Gateway extends AbstractGateway
     public function setCertificate($value)
     {
         return $this->setParameter('certificate', $value);
-    }
-
-    public function setParameter($key, $value)
-    {
-        return parent::setParameter($key, $value);
     }
 
     public function purchase(array $parameters = array())
