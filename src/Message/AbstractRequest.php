@@ -11,6 +11,12 @@ use Omnipay\Common\Message\ResponseInterface;
 abstract class AbstractRequest extends OmnipayAbstractRequest
 {
 
+    /**
+     * Rest API endpoint
+     * @var string
+     */
+    protected $liveEndPoint = "https://paiement.systempay.fr/vads-payment/";
+
     public function sendData($data)
     {
         $response = $this->httpClient->request('POST', $this->getEndPoint(), [], http_build_query($data));
@@ -37,7 +43,6 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
     {
         return $this->setParameter('merchantId', $value);
     }
-
 
     /**
      * @return mixed
@@ -191,6 +196,16 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
         return $this->setParameter('vads_trans_uuid');
     }
 
+    public function setMetadata(array $value)
+    {
+        return $this->setParameter('metadata', $value);
+    }
+
+    public function getMetadata()
+    {
+        return $this->getParameter('metadata');
+    }
+
     /**
      * @param string $amount
      * @return string
@@ -217,7 +232,7 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
 
 
     /**
-     * @see https://payzen.eu/wp-content/uploads/2013/04/Guide_d_implementation_formulaire_paiement_PayZen_v3.4.pdf
+     * @see https://paiement.systempay.fr/doc/fr-FR/m-payment/webview/calculer-la-signature.html
      */
     protected function generateSignature($data)
     {

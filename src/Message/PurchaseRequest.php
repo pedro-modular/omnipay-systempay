@@ -55,24 +55,12 @@ class PurchaseRequest extends AbstractRequest
             $data['vads_cust_email'] = $this->getCard()->getEmail();
         }
 
-        /*
-
-        // Order infos
-        $data['vads_order_id'] = 1;
-        $data['vads_order_info'] = 'Order description';
-        $data['vads_nb_products'] = 1;
-        // For each product
-        $data['vads_product_label0'] = 1;
-        $data['vads_product_amount0'] = 1;
-        $data['vads_product_type0'] = 'TRAVEL';
-        $data['vads_product_ref0'] = 1;
-        $data['vads_product_qty0'] = 1;
-        $data['vads_product_vat0'] = 1;
-
-        $data['vads_url_return'] = 'http://mywebsite.com/return';
-        $data['vads_return_mode'] = 'POST';
-
-        */
+        $metadata = $this->getMetadata();
+        if (!empty($metadata)) {
+            foreach ($metadata as $key => $value) {
+                $data['vads_ext_info_' . $key] = $value;
+            }
+        }
 
         $data['signature'] = $this->generateSignature($data);
 
