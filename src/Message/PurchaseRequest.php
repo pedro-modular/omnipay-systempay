@@ -43,6 +43,10 @@ class PurchaseRequest extends AbstractRequest
         $data['vads_order_id'] = $this->getOrderId();
         $data['vads_payment_cards'] = $this->getPaymentCards();
 
+        if (null !== $this->getNotifyUrl()) {
+            $data['vads_url_check'] = $this->getNotifyUrl();
+        }
+
         // Customer infos
         if ($this->getCard()) {
             $data['vads_cust_first_name'] = $this->getCard()->getName();
