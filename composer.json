@@ -8,7 +8,7 @@
     "omnipay",
     "pay",
     "payment",
-    "payzen"
+    "systempay"
   ],
   "homepage": "https://github.com/hounddd/omnipay-systempay",
   "license": "MIT",
