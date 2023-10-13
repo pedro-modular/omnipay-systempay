@@ -230,6 +230,33 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
         return $this->getAmountInteger()."";
     }
 
+    /**
+     * Store data for recurring payments
+     * We store it in the maon `token` attribute
+     * as suggested in https://omnipay.thephpleague.com/api/recurring-billing/
+     * 
+     * @param null|array $value
+     * 
+     * If not null, should be an array with the following keys:
+     * 
+     * 'vads_sub_amount'                n..12       Montant des échéances de l’abonnement pour toutes les échéances, hormis celles éventuellement définies par vads_sub_init_amount_number
+     * 'vads_sub_currency'              n3          Code numérique de la monnaie à utiliser pour l’abonnement, selon la norme ISO 4217.
+     * 'vads_sub_desc'                  ans...255   Règle de récurrence à appliquer suivant la spécification iCalendar RFC5545.
+     * 'vads_sub_effect_date'           n8          Date d'effet de l'abonnement. 
+     * 'vads_sub_init_amount'           n..12       Montant des échéances de l’abonnement pour les premières échéances.
+     * 'vads_sub_init_amount_number'    n..3        Nombre d’échéances auxquelles il faudra appliquer le montant vads_sub_init_amount
+     * 'vads_subscription'              ans..50     Identifiant de l'abonnement à créer.
+     * 
+     * @return AbstractRequest
+     */
+    public function setToken($value){
+        return $this->setParameter('token', $value);
+    }
+
+    public function getToken(){
+        return $this->getParameter('token');
+    }
+
 
     /**
      * @see https://paiement.systempay.fr/doc/fr-FR/m-payment/webview/calculer-la-signature.html

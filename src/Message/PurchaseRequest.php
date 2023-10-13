@@ -47,6 +47,15 @@ class PurchaseRequest extends AbstractRequest
             $data['vads_url_check'] = $this->getNotifyUrl();
         }
 
+        $subscription = $this->getToken();
+        if($subscription){
+            foreach($subscription as $key=>$value){
+                $data[$key] = $value;
+            }
+            $data['vads_sub_currency'] = $this->getCurrencyNumeric();
+            // $data['vads_url_check_src'] = '';
+        }
+
         // Customer infos
         if ($this->getCard()) {
             $data['vads_cust_first_name'] = $this->getCard()->getName();
