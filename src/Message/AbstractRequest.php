@@ -231,6 +231,30 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
     }
 
     /**
+     * @param $value can be 'SINGLE', 'MULTI' or 'MULTI_EXT'
+     * 
+     * Valeurs possibles :
+     * SINGLE
+     * MULTI:first=montant_inital;count=nbre_echeances;period=intervalle_en_jours
+     * MULTI_EXT:date1=montant1;date2=montant2;date3=montant3
+     * La somme totale des montants doit être égale à la valeur du champ vads_amount.
+     * 
+     * @return AbstractRequest
+     */
+    public function setPaymentConfig($value)
+    {
+        return $this->setParameter('vads_payment_config', $value);
+    }
+
+    public function getPaymentConfig()
+    {
+        if ($this->getParameter('vads_payment_config')) {
+            return $this->getParameter('vads_payment_config');
+        }
+        return 'SINGLE';
+    }
+
+    /**
      * Store data for recurring payments
      * We store it in the maon `token` attribute
      * as suggested in https://omnipay.thephpleague.com/api/recurring-billing/
