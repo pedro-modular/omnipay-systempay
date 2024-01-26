@@ -10,7 +10,7 @@
     "payment",
     "systempay"
   ],
-  "homepage": "https://github.com/hounddd/omnipay-systempay",
+  "homepage": "https://github.com/pedro-modular/omnipay-systempay",
   "license": "MIT",
   "authors": [
     {
