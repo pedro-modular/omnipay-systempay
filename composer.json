@@ -1,5 +1,5 @@
 {
-  "name": "hounddd/omnipay-systempay",
+  "name": "pedro-modular/omnipay-systempay",
   "type": "library",
   "description": "SystemPay driver for the Omnipay payment processing library",
   "keywords": [
@@ -14,8 +14,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Hounddd",
-      "homepage": "https://github.com/hounddd"
+      "name": "Pedro",
+      "homepage": "https://github.com/pedro-modular"
     }
   ],
   "autoload": {
