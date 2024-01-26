@@ -183,6 +183,57 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
      * @param $value
      * @return AbstractRequest
      */
+    public function setOrderInfo($value)
+    {
+        return $this->setParameter('orderInfo', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrderInfo()
+    {
+        return $this->getParameter('orderInfo');
+    }
+
+    /**
+     * @param $value
+     * @return AbstractRequest
+     */
+    public function setOrderInfo2($value)
+    {
+        return $this->setParameter('orderInfo2', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrderInfo2()
+    {
+        return $this->getParameter('orderInfo2');
+    }
+
+    /**
+     * @param $value
+     * @return AbstractRequest
+     */
+    public function setOrderInfo3($value)
+    {
+        return $this->setParameter('orderInfo3', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrderInfo3()
+    {
+        return $this->getParameter('orderInfo3');
+    }
+    
+    /**
+     * @param $value
+     * @return AbstractRequest
+     */
     public function setUuid($value)
     {
         return $this->setParameter('vads_trans_uuid', $value);
