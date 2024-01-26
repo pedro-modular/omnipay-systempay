@@ -22,7 +22,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "hounddd/omnipay-systempay": "dev-master"
+        "pedro-modular/omnipay-systempay": "dev-master"
     }
 }
 ```
