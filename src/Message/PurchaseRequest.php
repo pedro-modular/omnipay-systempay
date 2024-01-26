@@ -41,6 +41,9 @@ class PurchaseRequest extends AbstractRequest
         $data['vads_url_error'] = $this->getErrorUrl();
         $data['vads_url_refused'] = $this->getRefusedUrl();
         $data['vads_order_id'] = $this->getOrderId();
+        $data['vads_order_info'] = $this->getOrderInfo();
+        $data['vads_order_info2'] = $this->getOrderInfo2();
+        $data['vads_order_info3'] = $this->getOrderInfo3();
         $data['vads_payment_cards'] = $this->getPaymentCards();
 
         if (null !== $this->getNotifyUrl()) {
